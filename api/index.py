@@ -40,7 +40,7 @@ def playfab_authentication():
 
         
         requests.post(
-            url=f"https:// 4679F.playfabapi.com/Client/LinkCustomID",
+            url=f"https://4679F.playfabapi.com/Client/LinkCustomID",
             json={"CustomID": f"OCULUS{oculus_id}", "ForceLink": True},
             headers={
                 "content-type": "application/json",
