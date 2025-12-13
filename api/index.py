@@ -3,7 +3,7 @@ import random
 import requests
 from flask import Flask, jsonify, request
 
-app = Flask (__flask-backend-apkmeth__)
+app = Flask (__Name__)
 
 TITLE_ID = " 4679F"
 SECRET_KEY = "b7680061646ff38f81d0e81ac4f4747d"
