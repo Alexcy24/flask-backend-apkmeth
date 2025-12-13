@@ -3,7 +3,7 @@ import random
 import requests
 from flask import Flask, jsonify, request
 
-app = Flask(__name__)
+app = Flask-backend-apkmeth
 
 
 TITLE_ID = " 4679F"
@@ -22,7 +22,7 @@ def playfab_authentication():
     platform = data.get("Platform", "Null")
 
     login_req = requests.post(
-        url=f"https://{TITLE_ID}.playfabapi.com/Server/LoginWithServerCustomId",
+        url=f"https://4679F.playfabapi.com/Server/LoginWithServerCustomId",
         json={
             "ServerCustomId": f"OCULUS{oculus_id}",
             "CreateAccount": True
@@ -41,7 +41,7 @@ def playfab_authentication():
 
         
         requests.post(
-            url=f"https://{TITLE_ID}.playfabapi.com/Client/LinkCustomID",
+            url=f"https:// 4679F.playfabapi.com/Client/LinkCustomID",
             json={"CustomID": f"OCULUS{oculus_id}", "ForceLink": True},
             headers={
                 "content-type": "application/json",
@@ -148,7 +148,7 @@ def photonauth():
     TaggedDistance = AA.get("TaggedDistance")
     TaggedClient = AA.get("TaggedClient")
     OculusId = AA.get("OCULUSId")
-    TitleId = AA.get("TITLE_ID")
+    TitleId = AA.get("4679F")
 
     return jsonify({
         "ResultCode": 1,
