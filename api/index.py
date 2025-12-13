@@ -3,14 +3,14 @@ import random
 import requests
 from flask import Flask, jsonify, request
 
-app = Flask (__Name__)
+app = Flask(__name__)
 
 TITLE_ID = " 4679F"
 SECRET_KEY = "b7680061646ff38f81d0e81ac4f4747d"
 API_KEY = "OC|9953751624726396|b7680061646ff38f81d0e81ac4f4747d"
 
 def get_auth_headers():
-    return {"Content-Type": "application/json", "X-SecretKey": b7680061646ff38f81d0e81ac4f4747d
+    return {"Content-Type": "application/json", "X-SecretKey": SECRET_KEY}
 
 
 @app.route("/api/PlayFabAuthentication", methods=["POST"])
@@ -21,7 +21,7 @@ def playfab_authentication():
     platform = data.get("Platform", "Null")
 
     login_req = requests.post(
-        url=f"https://4679F.playfabapi.com/Server/LoginWithServerCustomId",
+        url=f"https://{TITLE_ID}.playfabapi.com/Server/LoginWithServerCustomId",
         json={
             "ServerCustomId": f"OCULUS{oculus_id}",
             "CreateAccount": True
@@ -40,7 +40,7 @@ def playfab_authentication():
 
         
         requests.post(
-            url=f"https://4679F.playfabapi.com/Client/LinkCustomID",
+            url=f"https://{TITLE_ID}.playfabapi.com/Client/LinkCustomID",
             json={"CustomID": f"OCULUS{oculus_id}", "ForceLink": True},
             headers={
                 "content-type": "application/json",
@@ -147,7 +147,7 @@ def photonauth():
     TaggedDistance = AA.get("TaggedDistance")
     TaggedClient = AA.get("TaggedClient")
     OculusId = AA.get("OCULUSId")
-    TitleId = AA.get("4679F")
+    TitleId = AA.get("TITLE_ID")
 
     return jsonify({
         "ResultCode": 1,
@@ -185,7 +185,7 @@ if __name__ == "__main__":
 @app.route("/api/TitleData", methods=["POST", "GET"])
 def title_data():
     response = requests.post(
-        url=f"https://{settings.4679F.playfabapi.com/Server/GetTitleData",
+        url=f"https://{settings.TitleId}.playfabapi.com/Server/GetTitleData",
         headers=settings.get_auth_headers()
     )
 
