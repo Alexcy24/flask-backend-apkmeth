@@ -11,7 +11,7 @@ SECRET_KEY = "b7680061646ff38f81d0e81ac4f4747d"
 API_KEY = "OC|9953751624726396|b7680061646ff38f81d0e81ac4f4747d"
 
 def get_auth_headers():
-    return {"Content-Type": "application/json", "X-SecretKey": SECRET_KEY}
+    return {"Content-Type": "application/json", "X-SecretKey": b7680061646ff38f81d0e81ac4f4747d
 
 
 @app.route("/api/PlayFabAuthentication", methods=["POST"])
@@ -186,7 +186,7 @@ if __name__ == "__main__":
 @app.route("/api/TitleData", methods=["POST", "GET"])
 def title_data():
     response = requests.post(
-        url=f"https://{settings.TitleId}.playfabapi.com/Server/GetTitleData",
+        url=f"https://{settings.4679F.playfabapi.com/Server/GetTitleData",
         headers=settings.get_auth_headers()
     )
 
